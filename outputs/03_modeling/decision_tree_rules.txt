@@ -1,0 +1,74 @@
+Aturan model Decision Tree
+
+Aturan dibatasi sampai kedalaman 4 agar mudah dibaca.
+
+|--- Rasio stabilitas suhu <= 0.12
+|   |--- Suhu maksimum <= 25.32
+|   |   |--- kelas: End_of_Life
+|   |--- Suhu maksimum >  25.32
+|   |   |--- Variasi suhu <= 4.75
+|   |   |   |--- Suhu minimum <= 23.50
+|   |   |   |   |--- Rata-rata tegangan <= 3.45
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Rata-rata tegangan >  3.45
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |--- Suhu minimum >  23.50
+|   |   |   |   |--- Rasio stabilitas tegangan <= 0.09
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Rasio stabilitas tegangan >  0.09
+|   |   |   |   |   |--- kelas: End_of_Life
+|   |   |--- Variasi suhu >  4.75
+|   |   |   |--- Tegangan minimum <= 2.28
+|   |   |   |   |--- Arus minimum <= -4.03
+|   |   |   |   |   |--- kelas: Warning
+|   |   |   |   |--- Arus minimum >  -4.03
+|   |   |   |   |   |--- kelas: Warning
+|   |   |   |--- Tegangan minimum >  2.28
+|   |   |   |   |--- Rasio stabilitas suhu <= 0.09
+|   |   |   |   |   |--- kelas: Healthy
+|   |   |   |   |--- Rasio stabilitas suhu >  0.09
+|   |   |   |   |   |--- kelas: End_of_Life
+|--- Rasio stabilitas suhu >  0.12
+|   |--- Suhu minimum <= 15.54
+|   |   |--- Variasi arus <= 0.23
+|   |   |   |--- Rata-rata tegangan <= 3.39
+|   |   |   |   |--- Rata-rata arus <= -2.00
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Rata-rata arus >  -2.00
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |--- Rata-rata tegangan >  3.39
+|   |   |   |   |--- Rentang tegangan <= 1.49
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Rentang tegangan >  1.49
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |--- Variasi arus >  0.23
+|   |   |   |--- Tegangan maksimum <= 4.21
+|   |   |   |   |--- Variasi tegangan <= 0.24
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Variasi tegangan >  0.24
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |--- Tegangan maksimum >  4.21
+|   |   |   |   |--- kelas: Healthy
+|   |--- Suhu minimum >  15.54
+|   |   |--- Rata-rata arus <= -1.73
+|   |   |   |--- Variasi tegangan <= 0.37
+|   |   |   |   |--- Rata-rata arus <= -1.90
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Rata-rata arus >  -1.90
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |--- Variasi tegangan >  0.37
+|   |   |   |   |--- Variasi arus <= 2.00
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Variasi arus >  2.00
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |--- Rata-rata arus >  -1.73
+|   |   |   |--- Suhu minimum <= 25.91
+|   |   |   |   |--- Variasi arus <= 0.71
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Variasi arus >  0.71
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |--- Suhu minimum >  25.91
+|   |   |   |   |--- Rata-rata tegangan <= 3.51
+|   |   |   |   |   |--- cabang dipotong pada kedalaman 2
+|   |   |   |   |--- Rata-rata tegangan >  3.51
+|   |   |   |   |   |--- kelas: End_of_Life

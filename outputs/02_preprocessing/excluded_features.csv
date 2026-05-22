@@ -1,0 +1,8 @@
+kolom_dikeluarkan,alasan
+battery_id,"ID grup baterai, dipakai untuk validasi, bukan fitur model"
+health_status,Target prediksi
+capacity_ahr,"Sumber pembentukan label, berisiko data leakage"
+soh,"Sumber pembentukan label, berisiko data leakage"
+elapsed_time_sec,Dihapus agar model tidak memakai shortcut durasi discharge
+cycle_index,Dihapus agar model tidak terlalu bergantung pada urutan siklus
+discharge_index,Dihapus agar model tidak terlalu bergantung pada urutan discharge

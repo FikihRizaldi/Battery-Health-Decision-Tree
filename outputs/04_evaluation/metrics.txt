@@ -1,0 +1,39 @@
+Evaluasi model Decision Tree
+
+Data
+- Jumlah data: 2794
+- Jumlah baterai unik: 34
+- Jumlah fitur awal: 13
+- Kelas target: End_of_Life, Healthy, Warning
+
+Strategi validasi
+- Model hanya menggunakan algoritma Decision Tree.
+- Evaluasi memakai nested StratifiedGroupKFold berdasarkan battery_id.
+- Setiap baterai pernah menjadi data uji pada salah satu fold.
+- Model akhir dilatih ulang pada seluruh data setelah evaluasi selesai.
+- Fitur capacity_ahr, soh, elapsed_time_sec, cycle_index, dan discharge_index tidak digunakan.
+- Tujuannya mengurangi shortcut prediksi dan membuat model lebih fokus pada pola sensor.
+
+Parameter terbaik model akhir
+{'model__criterion': 'gini', 'model__max_depth': 6, 'model__min_samples_leaf': 1, 'model__min_samples_split': 5}
+
+Rata-rata metrik per fold
+- Akurasi: 0.8446 +/- 0.0408
+- F1-score berbobot: 0.8491 +/- 0.0445
+- Precision berbobot: 0.8712 +/- 0.0558
+- Recall berbobot: 0.8446 +/- 0.0408
+- Selisih F1 train-test: 0.0976 +/- 0.0539
+
+Laporan klasifikasi out-of-fold
+              precision    recall  f1-score   support
+
+ End_of_Life       0.90      0.87      0.88      1318
+     Healthy       0.92      0.84      0.88       938
+     Warning       0.60      0.74      0.66       538
+
+    accuracy                           0.83      2794
+   macro avg       0.81      0.82      0.81      2794
+weighted avg       0.85      0.83      0.84      2794
+
+
+Detail per fold tersimpan pada outputs/03_modeling/fold_evaluation.csv

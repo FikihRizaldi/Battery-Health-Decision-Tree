@@ -1,0 +1,4 @@
+Catatan EDA
+
+Grafik SOH dan korelasi kapasitas dipakai hanya untuk memahami pola data.
+Kolom capacity_ahr dan soh tidak digunakan sebagai fitur saat melatih model.

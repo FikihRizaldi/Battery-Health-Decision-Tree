@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klasifikasi Kesehatan Baterai</title>
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+  <div class="app-frame">
+    <header class="app-header">
+      <div class="brand-area">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>Klasifikasi Kesehatan Baterai</h1>
+          <p>Decision Tree - data sensor discharge</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="#input">Input</a>
+        <a href="#evaluasi">Evaluasi</a>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="metrics">
+        <article>
+          <span>Model</span>
+          <strong>Decision Tree</strong>
+        </article>
+        <article>
+          <span>Akurasi</span>
+          <strong>0.8446</strong>
+        </article>
+        <article>
+          <span>F1 berbobot</span>
+          <strong>0.8491</strong>
+        </article>
+        <article>
+          <span>Validasi</span>
+          <strong>Group K-Fold</strong>
+        </article>
+      </section>
+
+      <section class="workbench">
+        <section id="input" class="panel input-panel">
+          <div class="panel-title">
+            <h2>Input Sensor</h2>
+            <span>13 fitur</span>
+          </div>
+
+          <div class="fieldsets">
+            <fieldset class="field-group small">
+              <legend>Lingkungan</legend>
+              <label>
+                <span>Suhu lingkungan</span>
+                <div class="input-unit">
+                  <input type="number" value="24.00" step="0.01">
+                  <b>C</b>
+                </div>
+              </label>
+            </fieldset>
+
+            <fieldset class="field-group">
+              <legend>Tegangan</legend>
+              <label>
+                <span>Rata-rata</span>
+                <div class="input-unit">
+                  <input type="number" value="3.52" step="0.01">
+                  <b>V</b>
+                </div>
+              </label>
+              <label>
+                <span>Minimum</span>
+                <div class="input-unit">
+                  <input type="number" value="2.70" step="0.01">
+                  <b>V</b>
+                </div>
+              </label>
+              <label>
+                <span>Maksimum</span>
+                <div class="input-unit">
+                  <input type="number" value="4.19" step="0.01">
+                  <b>V</b>
+                </div>
+              </label>
+              <label>
+                <span>Variasi</span>
+                <div class="input-unit">
+                  <input type="number" value="0.31" step="0.01">
+                  <b>V</b>
+                </div>
+              </label>
+            </fieldset>
+
+            <fieldset class="field-group">
+              <legend>Arus</legend>
+              <label>
+                <span>Rata-rata</span>
+                <div class="input-unit">
+                  <input type="number" value="-2.01" step="0.01">
+                  <b>A</b>
+                </div>
+              </label>
+              <label>
+                <span>Minimum</span>
+                <div class="input-unit">
+                  <input type="number" value="-4.03" step="0.01">
+                  <b>A</b>
+                </div>
+              </label>
+              <label>
+                <span>Maksimum</span>
+                <div class="input-unit">
+                  <input type="number" value="0.00" step="0.01">
+                  <b>A</b>
+                </div>
+              </label>
+              <label>
+                <span>Variasi</span>
+                <div class="input-unit">
+                  <input type="number" value="0.24" step="0.01">
+                  <b>A</b>
+                </div>
+              </label>
+            </fieldset>
+
+            <fieldset class="field-group">
+              <legend>Suhu baterai</legend>
+              <label>
+                <span>Rata-rata</span>
+                <div class="input-unit">
+                  <input type="number" value="32.40" step="0.01">
+                  <b>C</b>
+                </div>
+              </label>
+              <label>
+                <span>Minimum</span>
+                <div class="input-unit">
+                  <input type="number" value="24.11" step="0.01">
+                  <b>C</b>
+                </div>
+              </label>
+              <label>
+                <span>Maksimum</span>
+                <div class="input-unit">
+                  <input type="number" value="39.82" step="0.01">
+                  <b>C</b>
+                </div>
+              </label>
+              <label>
+                <span>Variasi</span>
+                <div class="input-unit">
+                  <input type="number" value="4.28" step="0.01">
+                  <b>C</b>
+                </div>
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="button-row">
+            <button type="button" class="btn secondary">Reset</button>
+            <button type="button" class="btn primary">Prediksi</button>
+          </div>
+        </section>
+
+        <aside class="side-column">
+          <section class="panel result-panel">
+            <div class="panel-title">
+              <h2>Hasil</h2>
+              <span>status</span>
+            </div>
+
+            <div class="status-box">
+              <div class="status-line"></div>
+              <div>
+                <span>Prediksi</span>
+                <strong>Belum tersedia</strong>
+              </div>
+            </div>
+
+            <div class="target-box">
+              <div><strong>Healthy</strong><span>SOH >= 80%</span></div>
+              <div><strong>Warning</strong><span>70% <= SOH &lt; 80%</span></div>
+              <div><strong>End_of_Life</strong><span>SOH &lt; 70%</span></div>
+            </div>
+          </section>
+
+          <section class="panel note-panel">
+            <div class="panel-title">
+              <h2>Catatan Model</h2>
+            </div>
+            <ul>
+              <li>Input memakai fitur sensor, bukan kapasitas atau SOH.</li>
+              <li>Evaluasi dipisah berdasarkan ID baterai.</li>
+              <li>Kelas Warning adalah kelas yang paling sulit.</li>
+            </ul>
+          </section>
+        </aside>
+      </section>
+
+      <section id="evaluasi" class="evaluation">
+        <article class="panel visual-panel">
+          <div class="panel-title">
+            <h2>Matriks Konfusi</h2>
+            <span>evaluasi</span>
+          </div>
+          <img src="../outputs/04_evaluation/confusion_matrix.png" alt="Matriks konfusi Decision Tree">
+        </article>
+
+        <article class="panel visual-panel">
+          <div class="panel-title">
+            <h2>Kepentingan Fitur</h2>
+            <span>interpretasi</span>
+          </div>
+          <img src="../outputs/04_evaluation/feature_importance.png" alt="Kepentingan fitur Decision Tree">
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

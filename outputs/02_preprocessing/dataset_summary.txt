@@ -1,0 +1,21 @@
+Ringkasan data dan preprocessing
+
+Jumlah data: 2794
+Jumlah baterai unik: 34
+Jumlah fitur terpilih: 13
+Kelas target: End_of_Life, Healthy, Warning
+
+Distribusi kelas:
+health_status
+End_of_Life    1318
+Healthy         938
+Warning         538
+
+Kolom yang tidak digunakan sebagai fitur:
+- battery_id: ID grup baterai, dipakai untuk validasi, bukan fitur model
+- health_status: Target prediksi
+- capacity_ahr: Sumber pembentukan label, berisiko data leakage
+- soh: Sumber pembentukan label, berisiko data leakage
+- elapsed_time_sec: Dihapus agar model tidak memakai shortcut durasi discharge
+- cycle_index: Dihapus agar model tidak terlalu bergantung pada urutan siklus
+- discharge_index: Dihapus agar model tidak terlalu bergantung pada urutan discharge

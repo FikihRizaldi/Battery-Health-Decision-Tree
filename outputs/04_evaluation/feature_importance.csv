@@ -1,0 +1,19 @@
+feature,label,importance
+temperature_stability_ratio,Rasio stabilitas suhu,0.34182019318103957
+temperature_min,Suhu minimum,0.2113894506336433
+current_mean,Rata-rata arus,0.12760024644881937
+current_std,Variasi arus,0.09360629754954936
+voltage_mean,Rata-rata tegangan,0.06581913996582918
+voltage_std,Variasi tegangan,0.05966613591451353
+temperature_max,Suhu maksimum,0.0477255432397574
+voltage_stability_ratio,Rasio stabilitas tegangan,0.016776931393135526
+temperature_std,Variasi suhu,0.015502303388531893
+voltage_range,Rentang tegangan,0.00805796441373653
+voltage_min,Tegangan minimum,0.0049167431839807684
+ambient_temperature,Suhu lingkungan,0.002574428101708896
+voltage_max,Tegangan maksimum,0.002422735938550061
+temperature_mean,Rata-rata suhu,0.002121886647204575
+current_min,Arus minimum,5.2583781235975946e-18
+current_max,Arus maksimum,0.0
+temperature_range,Rentang suhu,0.0
+current_range,Rentang arus,0.0
