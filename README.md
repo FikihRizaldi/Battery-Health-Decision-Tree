@@ -104,11 +104,8 @@ battery_decision_tree_project/
 |   |-- 02_preprocessing/
 |   |-- 03_modeling/
 |   `-- 04_evaluation/
-|-- src/
-|   `-- build_dataset.py
-`-- web/
-    |-- index.html
-    `-- styles.css
+`-- src/
+    `-- build_dataset.py
 ```
 
 ## Cara Menjalankan Proyek
