@@ -53,8 +53,16 @@ def inject_css():
     st.markdown(
         """
         <style>
-        #MainMenu, header, footer {
+        #MainMenu, footer {
             visibility: hidden;
+        }
+
+        header[data-testid="stHeader"] {
+            background: transparent;
+        }
+
+        header[data-testid="stHeader"] * {
+            color: #f8fafc;
         }
 
         :root {
@@ -80,16 +88,19 @@ def inject_css():
 
         .block-container {
             max-width: 1320px;
-            padding: 28px 34px 44px;
+            padding: 42px 34px 44px;
         }
 
         section[data-testid="stSidebar"] {
-            background: #0f172a;
+            background:
+                linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
             border-right: 1px solid var(--line);
         }
 
         section[data-testid="stSidebar"] > div {
-            padding-top: 28px;
+            padding-top: 26px;
+            padding-left: 18px;
+            padding-right: 18px;
         }
 
         section[data-testid="stSidebar"] h1,
@@ -104,12 +115,41 @@ def inject_css():
         section[data-testid="stSidebar"] label {
             font-size: 13px;
             font-weight: 700;
+            color: #cbd5e1 !important;
+        }
+
+        section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+            color: #94a3b8;
+        }
+
+        .sidebar-title {
+            padding: 14px 14px 12px;
+            margin-bottom: 14px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+        }
+
+        .sidebar-title h3 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 17px;
+            line-height: 1.2;
+            font-weight: 900;
+        }
+
+        .sidebar-title p {
+            margin: 6px 0 0;
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.45;
         }
 
         div[data-testid="stExpander"] {
-            background: rgba(255, 255, 255, 0.035);
-            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(148, 163, 184, 0.16);
             border-radius: 8px;
+            margin-bottom: 10px;
         }
 
         div[data-testid="stExpander"] details summary {
@@ -118,11 +158,11 @@ def inject_css():
         }
 
         div[data-testid="stNumberInput"] input {
-            background: #111827;
-            border: 1px solid rgba(148, 163, 184, 0.28);
+            background: rgba(2, 6, 23, 0.54);
+            border: 1px solid rgba(148, 163, 184, 0.24);
             border-radius: 8px;
             color: #f8fafc;
-            font-weight: 650;
+            font-weight: 700;
         }
 
         div[data-testid="stNumberInput"] input:focus {
@@ -139,7 +179,7 @@ def inject_css():
             background: linear-gradient(135deg, var(--indigo), var(--violet));
             color: white;
             font-weight: 850;
-            box-shadow: 0 14px 34px rgba(79, 70, 229, 0.28);
+            box-shadow: 0 12px 28px rgba(79, 70, 229, 0.24);
         }
 
         .stButton > button:hover,
@@ -599,8 +639,15 @@ feature_columns = bundle["feature_columns"]
 class_names = bundle["class_names"]
 
 with st.sidebar:
-    st.markdown("### Control Panel")
-    st.caption("Input sensor discharge baterai")
+    st.markdown(
+        """
+        <div class="sidebar-title">
+            <h3>Input Prediksi</h3>
+            <p>Gunakan nilai sensor discharge untuk menghitung kondisi baterai.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     with st.form("prediction_form"):
         user_input = {}
