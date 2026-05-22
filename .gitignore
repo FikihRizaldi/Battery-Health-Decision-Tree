@@ -10,3 +10,5 @@ env/
 *.zip
 
 .streamlit/secrets.toml
+
+*.log
