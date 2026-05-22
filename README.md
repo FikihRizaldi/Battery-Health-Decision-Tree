@@ -43,17 +43,9 @@ Dataset hasil olahan berisi fitur statistik dari proses discharge baterai, seper
 
 ## Alur Penelitian
 
-```mermaid
-flowchart TD
-    A[Dataset NASA Battery] --> B[Pembentukan Dataset Fitur]
-    B --> C[Exploratory Data Analysis]
-    C --> D[Preprocessing dan Seleksi Fitur]
-    D --> E[Training Decision Tree]
-    E --> F[Validasi Nested StratifiedGroupKFold]
-    F --> G[Evaluasi Model]
-    G --> H[Simpan Model dan Output Analisis]
-    H --> I[Aplikasi Web Streamlit]
-```
+![Alur Penelitian](outputs/readme_alur_penelitian.svg)
+
+Tahapan penelitian dimulai dari pengambilan dataset NASA Battery, pembentukan dataset fitur, EDA, preprocessing, training Decision Tree, validasi model, evaluasi performa, penyimpanan output, hingga aplikasi web Streamlit.
 
 ## Hasil Evaluasi
 

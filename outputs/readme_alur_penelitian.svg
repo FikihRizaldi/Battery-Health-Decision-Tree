@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="640" viewBox="0 0 1040 640" role="img" aria-labelledby="title desc">
+  <title id="title">Alur Penelitian Battery Health Decision Tree</title>
+  <desc id="desc">Diagram alur penelitian dari dataset NASA Battery sampai aplikasi web Streamlit.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#c4b5fd"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #ffffff; }
+      .subtitle { font: 400 15px Arial, sans-serif; fill: #cbd5e1; }
+      .step { font: 700 13px Arial, sans-serif; fill: #6d28d9; letter-spacing: .08em; }
+      .label { font: 700 17px Arial, sans-serif; fill: #111827; }
+      .note { font: 400 13px Arial, sans-serif; fill: #475569; }
+      .arrow { fill: none; stroke: #c4b5fd; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+      .node { fill: url(#node); stroke: rgba(255,255,255,.75); stroke-width: 1.5; filter: url(#shadow); }
+    </style>
+  </defs>
+
+  <rect width="1040" height="640" rx="28" fill="url(#bg)"/>
+  <text x="56" y="58" class="title">Alur Penelitian</text>
+  <text x="56" y="84" class="subtitle">Klasifikasi kesehatan baterai lithium-ion menggunakan Decision Tree</text>
+
+  <path class="arrow" d="M 300 170 H 382"/>
+  <path class="arrow" d="M 630 170 H 712"/>
+  <path class="arrow" d="M 840 214 V 268"/>
+  <path class="arrow" d="M 712 330 H 630"/>
+  <path class="arrow" d="M 382 330 H 300"/>
+  <path class="arrow" d="M 170 374 V 428"/>
+  <path class="arrow" d="M 300 490 H 382"/>
+  <path class="arrow" d="M 630 490 H 712"/>
+
+  <g transform="translate(70 124)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 01</text>
+    <text x="24" y="58" class="label">Dataset NASA Battery</text>
+    <text x="24" y="78" class="note">Data mentah baterai lithium-ion</text>
+  </g>
+
+  <g transform="translate(400 124)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 02</text>
+    <text x="24" y="58" class="label">Pembentukan Dataset</text>
+    <text x="24" y="78" class="note">Ekstraksi fitur dari file .mat</text>
+  </g>
+
+  <g transform="translate(730 124)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 03</text>
+    <text x="24" y="58" class="label">EDA</text>
+    <text x="24" y="78" class="note">Distribusi kelas dan pola sensor</text>
+  </g>
+
+  <g transform="translate(730 284)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 04</text>
+    <text x="24" y="58" class="label">Preprocessing</text>
+    <text x="24" y="78" class="note">Seleksi fitur dan pembersihan data</text>
+  </g>
+
+  <g transform="translate(400 284)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 05</text>
+    <text x="24" y="58" class="label">Training Decision Tree</text>
+    <text x="24" y="78" class="note">Pencarian parameter terbaik</text>
+  </g>
+
+  <g transform="translate(70 284)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 06</text>
+    <text x="24" y="58" class="label">Validasi Model</text>
+    <text x="24" y="78" class="note">Nested StratifiedGroupKFold</text>
+  </g>
+
+  <g transform="translate(70 444)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 07</text>
+    <text x="24" y="58" class="label">Evaluasi Model</text>
+    <text x="24" y="78" class="note">Akurasi, F1-score, confusion matrix</text>
+  </g>
+
+  <g transform="translate(400 444)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 08</text>
+    <text x="24" y="58" class="label">Simpan Output</text>
+    <text x="24" y="78" class="note">Model, grafik, dan laporan evaluasi</text>
+  </g>
+
+  <g transform="translate(730 444)">
+    <rect class="node" width="230" height="92" rx="18"/>
+    <text x="24" y="30" class="step">TAHAP 09</text>
+    <text x="24" y="58" class="label">Aplikasi Web</text>
+    <text x="24" y="78" class="note">Dashboard prediksi Streamlit</text>
+  </g>
+</svg>
