@@ -93,8 +93,6 @@ battery_decision_tree_project/
 |-- model_components.py
 |-- requirements.txt
 |-- README.md
-|-- draft_laporan.md
-|-- notebook_analisis.ipynb
 |-- data/
 |   `-- battery_features.csv
 |-- models/
